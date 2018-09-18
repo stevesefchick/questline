@@ -1,0 +1,62 @@
+/*import google font*/
+@import url('https://fonts.googleapis.com/css?family=Rubik');  
+
+.App {
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.qlLandingHeader{
+  background-color: rgb(24, 128, 212);
+  height: 100px;
+  padding:60px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-size:3.5em;
+}
+
+.qlLandingFooter{
+  background-color: rgb(24, 128, 212);
+  padding:20px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-size:1.0em;
+}
+
+.qlLandingBody1{
+  background-color: rgb(174, 215, 247);
+  padding:20px;
+  font-family: 'Rubik', sans-serif;
+  font-size:1.2em;
+}
+
+.qlLandingBody2{
+  background-color: rgb(109, 163, 204);
+  padding:20px;
+  font-family: 'Rubik', sans-serif;
+  font-size:1.2em;
+}
+
+.qlLandingBody3{
+  background-color: rgb(174, 215, 247);
+  padding:20px;
+  font-family: 'Rubik', sans-serif;
+  font-size:1.2em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+/*
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+*/
