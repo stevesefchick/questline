@@ -12,21 +12,35 @@ export class Landing extends Component {
   {
     super(props);
     this.handleStateChange = this.handleStateChange.bind(this);
+    this.state = {response:'',heck:''};
   }
 
   //START OF API TEST
-  state = {
-    response: ''
-  };
+  //state = {
+  //  response: ''
+  //};
 
   componentDidMount() {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
+
+      this.callHeck()
+      .then(res => this.setState({ heck: res.express }))
+      .catch(err => console.log(err));
   }
 
   callApi = async () => {
     const response = await fetch('/api/hello');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
+  callHeck = async () => {
+    const response = await fetch('/api/testheck');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -84,6 +98,8 @@ export class Landing extends Component {
       <div className="qlLandingFooter">
           This is the footer. Copyrights and crap go here.<br />
           {this.state.response}
+          <br />
+          {this.state.heck}
         </div>
     )
   }
