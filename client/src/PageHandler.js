@@ -3,7 +3,12 @@ import {Landing} from './Landing';
 import {Main} from './Main';
 import {Registration} from './Registration';
 import {Login} from './Login';
-
+import {
+  BrowserRouter as Router,
+  StaticRouter,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class PageHandler extends Component{
     
@@ -20,19 +25,52 @@ class PageHandler extends Component{
         this.setState({page: newState});
         console.log("heck it worked!");
       }
-      
+
       render(){
         
+        const landing = () => (
+          <Landing clickState={this.updateState}/>
+        );
+
+        const registration = () => (
+          <Registration />
+        );
+
+        const main = () => (
+          <Main />
+        );
+
+        const login = () => (
+          <Login />
+        );
+
         //get the current state
         const currentState = this.state.page;
 
         //landing page
-        if (currentState === 'landing')
-        {
+        //if (currentState === 'landing')
+       // {
           return(
-            <Landing clickState={this.updateState}/>
+            <Router>
+              <div>
+              <Link to="/landing">Landing</Link>...
+              <Link to="/registration">Registration</Link>...
+              <Link to="/main">Main</Link>...
+              <Link to="/login">Login</Link>
+              
+              <Route exact path="/" component={landing} />
+              <Route path="/landing" component={landing} />
+              <Route path="/registration" component={registration} />
+              <Route path="/main" component={main} />
+              <Route path="/login" component={login} />
+              
+              </div>
+            </Router>
+            //<Landing clickState={this.updateState}/>
         );
-        }
+
+       // }
+       /*
         //registration page - TBD
         else if (currentState === 'registration')
         {
@@ -57,6 +95,7 @@ class PageHandler extends Component{
           );
   
         }
+        */
       }
     
     }

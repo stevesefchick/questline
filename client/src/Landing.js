@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  StaticRouter,
+  Route,
+  Link
+} from 'react-router-dom'
 
 
 
@@ -12,24 +18,26 @@ export class Landing extends Component {
   {
     super(props);
     this.handleStateChange = this.handleStateChange.bind(this);
-    this.state = {response:'',heck:''};
+    this.state = {response:'',
+                  copyrightresponse:''};
+
+
   }
 
-  //START OF API TEST
-  //state = {
-  //  response: ''
-  //};
 
+
+  //make api calls upon mount
   componentDidMount() {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
 
-      this.callHeck()
-      .then(res => this.setState({ heck: res.express }))
+      this.callCopyrightInfo()
+      .then(res => this.setState({ copyrightresponse: res.express }))
       .catch(err => console.log(err));
   }
 
+  //call test API - remove later
   callApi = async () => {
     const response = await fetch('/api/hello');
     const body = await response.json();
@@ -39,8 +47,9 @@ export class Landing extends Component {
     return body;
   };
 
-  callHeck = async () => {
-    const response = await fetch('/api/testheck');
+  //call copyright info API
+  callCopyrightInfo = async () => {
+    const response = await fetch('/api/landing/copyright');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -48,7 +57,6 @@ export class Landing extends Component {
     return body;
   };
 
-  //END OF API TEST
 
   //qlBody displays the several body areas of the main landing screen
   qlBody1()
@@ -96,20 +104,10 @@ export class Landing extends Component {
   {
     return(
       <div className="qlLandingFooter">
-          This is the footer. Copyrights and crap go here.<br />
-          {this.state.response}
-          <br />
-          {this.state.heck}
+        {this.state.copyrightresponse}
         </div>
     )
   }
-
-  /*
-  handleButtonClick()
-  {
-    this.props.updateState("registration");
-  }
-*/
 
 handleStateChange(e)
 {
@@ -130,7 +128,8 @@ handleStateChange(e)
 
     return (
 
-      //TODO: Add <head> with info here
+
+
 
       //TODO: Add Logo and increase size to appropriate-ness
       //header
