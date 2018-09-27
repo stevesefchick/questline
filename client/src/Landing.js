@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  StaticRouter,
-  Route,
-  Link
-} from 'react-router-dom'
-
-
 
 export class Landing extends Component {
   
