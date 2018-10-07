@@ -1,9 +1,33 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const mongoUserURL='mongo://ds115963.mlab.com:15963/questlinedb';
+//load .env
+require('dotenv').config();
 
-mongoose.connect('ds115963.mlab.com:15963/questlinedb');
+mongoose.connect(mongoUserURL,
+  {username: process.env.mongouser,password:process.env.mongopassword},
+  function(err)
+{
+  if(err){
+    console.log('Error connecting to: '+ mongoUserURL)
+  }
+  else{
+    console.log('Connected to: '+ mongoUserURL)
+  }
+});
+
+
+
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+
+const QuestlineUser = new Schema({
+  "userID":Number,
+  "UserName":String
+});
+const userModel = mongoose.model('UserSchema',QuestlineUser);
 
 
 const app = express();
@@ -19,8 +43,9 @@ app.get('/api/landing/copyright', (req, res) => {
 
 
   //mongoose MongoDB Testing!
-  var testboy = mongoose.Model('questline_user');
-  var newBoy = new testboy();
+
+
+
   newBoy.userID.push({"userID":"billy"});
 
   newBoy.save(function (err){

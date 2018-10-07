@@ -45,7 +45,7 @@ class PageHandler extends Component{
         );
 
         //get the current state
-        const currentState = this.state.page;
+        //const currentState = this.state.page;
 
         //landing page
         //if (currentState === 'landing')
