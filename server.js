@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const mongoUserURL='mongodb://'+process.env.MONGOUSER+':'+process.env.MONGOPASS+'@ds115963.mlab.com:15963/questlinedb';
+const mongoUserURL='mongodb://'+process.env.MONGOUSER+':'+process.env.MONGOPASS+'@'+process.env.MONGOURL;
 
 mongoose.connect(mongoUserURL,
   {username: process.env.MONGOUSER,
@@ -24,15 +24,11 @@ const db = mongoose.connection;
 
 //create the schema for User
 const Schema = mongoose.Schema;
-const QuestlineUser = new Schema({
-  userID:Number,
-  userName:String
-});
-const userModel = mongoose.model('questline_users',QuestlineUser);
-module.exports = mongoose.model('questline_users',QuestlineUser);
+const userModel = require('./models/QuestlineUser');
 
 const app = express();
 const port = process.env.PORT || 5000;
+
 
 //TODO - remove later
 app.get('/api/hello', (req, res) => {
