@@ -47,7 +47,6 @@ app.get('/api/landing/copyright', (req, res) => {
 
 
   //mongoose MongoDB Testing!
-
 //run a query against the db
 //const query = userModel.find({"userName":"Biff"});
 //query.select("userName");
