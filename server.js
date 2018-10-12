@@ -50,7 +50,17 @@ app.get('/api/landing/copyright', (req, res) => {
 
 
 //insert a record into the DB
-const newBoy = new userModel({"userID":123,"userName":"Bobby"});
+const newBoy = new userModel;
+newBoy.userName = 'heckboy';
+newBoy.password = 'awheck69';
+newBoy.accountStatus = "Active";
+newBoy.userInfo.firstName = "heck";
+newBoy.userInfo.lastName = "boy";
+newBoy.userInfo.emailAddress = "heck@boy.com";
+newBoy.lastUpdated = new Date;
+
+
+//const newBoy = new userModel({"userID":123,"userName":"Bobby"});
 newBoy.save(function(err){
   if (err) return console.log(err);
   console.log('hey it worked!?');
