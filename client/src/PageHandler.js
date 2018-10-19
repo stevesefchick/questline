@@ -10,6 +10,16 @@ import {
   Link
 } from 'react-router-dom'
 
+//TODO
+//GET .ENV WORKING ON CLIENT SIDE
+//GET OKTA WORKING
+import { Security, ImplicitCallback, withAuth} from '@okta/okta-react'
+const config = {
+  issuer: process.env.ORGURL +  '/oauth2/default',
+  redirect_uri: window.location.origin + '/implicit/callback',
+  client_id: process.env.CLIENTID
+}
+
 class PageHandler extends Component{
     
       constructor(props)

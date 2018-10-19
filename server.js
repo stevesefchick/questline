@@ -1,16 +1,6 @@
 //load .env
 require('dotenv').config();
 
-//auth/okta testing
-import { Security, ImplicitCallback} from '@okta/okta-react';
-
-const config = {
-  issuer: process.env.ORGURL +  '/oauth2/default',
-  redirect_uri: window.location.origin + '/implicit/callback',
-  client_id: process.env.CLIENTID
-}
-//end okta testing
-
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoUserURL='mongodb://'+process.env.MONGOUSER+':'+process.env.MONGOPASS+'@'+process.env.MONGOURL;
