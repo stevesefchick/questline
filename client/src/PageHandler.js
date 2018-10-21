@@ -9,16 +9,20 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+//import { Security, ImplicitCallback} from '@okta/okta-react'
 
 //TODO
 //GET .ENV WORKING ON CLIENT SIDE
 //GET OKTA WORKING
-import { Security, ImplicitCallback, withAuth} from '@okta/okta-react'
+require('dotenv').config();
+
+/*
 const config = {
   issuer: process.env.ORGURL +  '/oauth2/default',
   redirect_uri: window.location.origin + '/implicit/callback',
   client_id: process.env.CLIENTID
 }
+*/
 
 class PageHandler extends Component{
     
@@ -38,6 +42,7 @@ class PageHandler extends Component{
 
       render(){
         
+
         const landing = () => (
           <Landing clickState={this.updateState}/>
         );
@@ -52,6 +57,7 @@ class PageHandler extends Component{
 
         const login = () => (
           <Login />
+
         );
 
         //get the current state
@@ -61,6 +67,7 @@ class PageHandler extends Component{
         //if (currentState === 'landing')
        // {
           return(
+
             <Router>
               <div>
               <Link to="/landing">Landing</Link>...
@@ -110,4 +117,5 @@ class PageHandler extends Component{
     
     }
   
+
   export default PageHandler;
