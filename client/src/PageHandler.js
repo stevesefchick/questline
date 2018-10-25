@@ -3,6 +3,7 @@ import {Landing} from './Landing';
 import {Main} from './Main';
 import {Registration} from './Registration';
 import {Login} from './Login';
+//import {Auth} from './Auth';
 import {
   BrowserRouter as Router,
   StaticRouter,

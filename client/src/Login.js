@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import Auth from './Auth.js';
+
 //dont need this yet
 /*import {
   BrowserRouter as Router,
@@ -43,6 +45,9 @@ handleStateChange(e)
 
 
   render() {
+
+    const auth = new Auth();
+    auth.login();
 
     return (
 

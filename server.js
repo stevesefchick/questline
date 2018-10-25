@@ -30,15 +30,27 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-//TODO - remove later
+
+//TODO: Remove for later
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Test!' });
 });
 
 
 
+//TODO: Update Callback
+app.get('/callback', (req, res) => {
 
-//return copyright info
+  res.send({ express: 'ayyyyyyyyyy' });
+
+}
+);
+
+
+
+
+//TODO: Update with better info for copyright
+//TODO: Remove MongoDB crap
 app.get('/api/landing/copyright', (req, res) => {
 
 
