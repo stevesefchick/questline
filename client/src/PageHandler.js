@@ -9,20 +9,10 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-//import { Security, ImplicitCallback} from '@okta/okta-react'
 
-//TODO
-//GET .ENV WORKING ON CLIENT SIDE
-//GET OKTA WORKING
-require('dotenv').config();
 
-/*
-const config = {
-  issuer: process.env.ORGURL +  '/oauth2/default',
-  redirect_uri: window.location.origin + '/implicit/callback',
-  client_id: process.env.CLIENTID
-}
-*/
+//require('dotenv').config();
+
 
 class PageHandler extends Component{
     
