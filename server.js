@@ -36,7 +36,10 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Test!' });
 });
 
-
+//retrieve auth0 properties
+app.get('/api/authprops/client', (req, res) => {
+  res.send({ express: process.env.AUTHCLIENTID });
+});
 
 //TODO: Update Callback
 app.get('/callback', (req, res) => {
