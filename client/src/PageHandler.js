@@ -4,6 +4,11 @@ import {Main} from './Main';
 import {Registration} from './Registration';
 import {Login} from './Login';
 //import {Auth} from './Auth';
+//import AuthLogin from '/Auth/Login';
+//import AuthLogout from '/Auth/Logout';
+import isAuthenticated from './Auth/isAuthenticated';
+import Private from './Components/Private';
+
 import {
   BrowserRouter as Router,
   StaticRouter,
@@ -46,11 +51,12 @@ class PageHandler extends Component{
           <Main />
         );
 
+        /*
         const login = () => (
           <Login />
 
         );
-
+*/
         //get the current state
         //const currentState = this.state.page;
 
@@ -70,8 +76,18 @@ class PageHandler extends Component{
               <Route path="/landing" component={landing} />
               <Route path="/registration" component={registration} />
               <Route path="/main" component={main} />
-              <Route path="/login" component={login} />
-              
+              <Route path="/private" component={Private} />
+              <Route path="/login" component={Login} />
+              {
+          !isAuthenticated() && (
+            <li><Link to="/login">you logged out boy</Link></li>
+          )
+        }
+        {
+          isAuthenticated() && (
+            <li>you logged in</li>
+          )
+        }
               </div>
             </Router>
             //<Landing clickState={this.updateState}/>

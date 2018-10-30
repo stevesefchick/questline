@@ -47,8 +47,8 @@ callAuthClient = async () => {
   }
 
   auth0 = new auth0.WebAuth({
-    domain: 'xxxxxxxxxxxx',
-    clientID: 'xxxxxxxxxx',
+    domain: 'questline.auth0.com',
+    clientID: 'cEM2b5H7QarjhJnJabYstUiuJIE3dVo7',
     redirectUri: 'http://localhost:3000/callback',
     responseType: 'token id_token',
     scope: 'openid'

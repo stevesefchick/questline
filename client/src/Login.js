@@ -1,9 +1,13 @@
 
 //import react
-import React, { Component } from 'react';
+import React from 'react';
+import {Redirect} from 'react-router-dom';
 //import logo from './logo.svg';
 import './App.css';
-import Auth from './Auth.js';
+import isAuthenticated from './Auth/isAuthenticated';
+import Lock from './Auth/Lock';
+
+//import Auth from './Auth.js';
 
 //dont need this yet
 /*import {
@@ -14,40 +18,25 @@ import Auth from './Auth.js';
 } from 'react-router-dom'
 */
 
+const Login = (props) => (
+  isAuthenticated() ? (
+    <Redirect to={{
+      pathname: '/private',
+      state: { from: props.location }
+    }} />
+  ) : (
+    <Lock location={props.location} />
+  )
+)
 
-
-
+/*
 export class Login extends Component {
   
 
-/*
-  constructor(props)
-  {
-    super(props);
-    this.handleStateChange = this.handleStateChange.bind(this);
-  }
-
-handleStateChange(e)
-{
-  this.props.clickState('main');
-}
-
-  drawButton()
-  {
-    return(
-      <button onClick={this.handleStateChange}>
-      Login!
-      </button>
-
-    )
-  }
-  */
-
-
   render() {
 
-    const auth = new Auth();
-    auth.login();
+    //const auth = new Auth();
+    //auth.login();
 
     return (
 
@@ -66,7 +55,7 @@ handleStateChange(e)
   
   
 }
-
+*/
 
 //uncomment this too
 export default Login;
