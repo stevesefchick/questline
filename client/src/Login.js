@@ -29,6 +29,8 @@ const Login = (props) => (
   )
 )
 
+export default Login;
+
 /*
 export class Login extends Component {
   
@@ -58,4 +60,3 @@ export class Login extends Component {
 */
 
 //uncomment this too
-export default Login;

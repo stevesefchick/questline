@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Auth0Lock from 'auth0-lock';
 import { AUTH_CONFIG } from './auth0-variables';
+import '../App.css';
 
 class Lock extends Component {
   lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, {
