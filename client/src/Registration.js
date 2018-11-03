@@ -37,6 +37,10 @@ handleStateChange(e)
       <div>
 
         <h1>reg</h1>
+        <p>Hey Welcome to questline</p>
+        <p>username</p>
+        <p>Email Address</p>
+        <p>Password</p>
 
       </div>
 

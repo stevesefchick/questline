@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+#archive crap
+/auth0*archive
 
 
 # production

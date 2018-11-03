@@ -1,11 +1,11 @@
 
 //import react
-import React from 'react';
+import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 //import logo from './logo.svg';
 import './App.css';
-import isAuthenticated from './Auth/isAuthenticated';
-import Lock from './Auth/Lock';
+//import isAuthenticated from './Auth/isAuthenticated';
+//import Lock from './Auth/Lock';
 
 //import Auth from './Auth.js';
 
@@ -18,6 +18,9 @@ import Lock from './Auth/Lock';
 } from 'react-router-dom'
 */
 
+
+//old auth0 stuff
+/*
 const Login = (props) => (
   isAuthenticated() ? (
     <Redirect to={{
@@ -30,8 +33,11 @@ const Login = (props) => (
 )
 
 export default Login;
+*/
 
-/*
+
+
+
 export class Login extends Component {
   
 
@@ -57,6 +63,7 @@ export class Login extends Component {
   
   
 }
-*/
+export default Login;
+
 
 //uncomment this too
