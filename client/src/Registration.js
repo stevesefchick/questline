@@ -30,20 +30,63 @@ handleStateChange(e)
   }
   */
 
+    //registration header
+    regHeader()
+    {
+      return(
+        <div className="qlRegistrationHeader">
+        Registration
+      </div>
+      )
+    }
+
+
+    regForm()
+    {
+      return(
+        <div className="qlRegistrationBody">
+          <br />
+          <br />
+
+        <form>
+
+          <label>
+            Username:<br/>
+            <input type="text" name="name" />
+          </label>
+          <br />
+          <br />
+
+          <label>
+            Password:<br/>
+            <input type="text" name="password" />
+          </label>
+          <br />
+          <br />
+
+          <label>
+            Email Address:<br/>
+            <input type="text" name="emailaddress" />
+          </label>
+          <br />
+          <br />
+          <br />
+
+          <input type="submit" value="Submit" />
+
+        </form>
+        
+      </div>
+      )
+    }
+
   render() {
 
     return (
-
       <div>
-
-        <h1>reg</h1>
-        <p>Hey Welcome to questline</p>
-        <p>username</p>
-        <p>Email Address</p>
-        <p>Password</p>
-
+        {this.regHeader()}
+        {this.regForm()}
       </div>
-
     );
   }
 }
