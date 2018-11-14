@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 
 
 export class Registration extends Component {
   
+    //constructor
+    constructor(){
+      super()
+      this.state = {
+        username:''
+      }
 
-/*
-  constructor(props)
-  {
-    super(props);
-    this.handleStateChange = this.handleStateChange.bind(this);
-  }
+    }
 
-handleStateChange(e)
-{
-  this.props.clickState('main');
-}
-
-  drawButton()
-  {
-    return(
-      <button onClick={this.handleStateChange}>
-      Login!
-      </button>
-
-    )
-  }
-  */
 
     //registration header
     regHeader()
@@ -48,11 +35,11 @@ handleStateChange(e)
           <br />
           <br />
 
-        <form>
+        <form onSubmit={this.submitForm}>
 
           <label>
             Username:<br/>
-            <input type="text" name="name" />
+            <input type="text" name="username" />
           </label>
           <br />
           <br />
@@ -78,6 +65,47 @@ handleStateChange(e)
         
       </div>
       )
+    }
+
+
+
+    submitForm(event) {
+      
+      //prevent empty fields
+      event.preventDefault();
+      //get data
+      const data = new FormData(event.target);
+
+
+
+
+      console.log(data.get('username'));
+      //send api call to server
+      axios.post('/api/registration/new', {
+        username: 'heck'
+      })
+      .then (function (response) {
+        console.log('heck it worked!');
+      })
+      .catch (function (error) {
+        console.log(error);
+      });
+
+
+
+      //test, appears that this works!
+      /*
+      axios.get('/api/hello')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      */
+
+
+        console.log('heck');
     }
 
   render() {

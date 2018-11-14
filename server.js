@@ -49,7 +49,13 @@ app.get('/callback', (req, res) => {
 }
 );
 
+//new user registration
+app.post('/api/registration/new'), (req, res) =>
+{
+  var user_name = req.username;
+  res.send({ express: user_name });
 
+}
 
 
 //TODO: Update with better info for copyright
