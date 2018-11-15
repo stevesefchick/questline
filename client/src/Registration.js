@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
-import './App.css';
+//import './App.css';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import deepPurple from '@material-ui/core/colors/red';
+import green from '@material-ui/core/colors/red';
 
 
+
+const styles = theme => ({
+  margin: {
+    margin: theme.spacing.unit,
+    backgroundColor: deepPurple[500],
+  },
+});
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+  },
+  typography: {
+    useNextVariants: true,
+  },
+});
 
 export class Registration extends Component {
   
@@ -59,6 +81,13 @@ export class Registration extends Component {
           <br />
           <br />
 
+          <MuiThemeProvider theme={theme}>
+          <Button variant="contained" color="primary">
+          
+          Hai
+          </Button>
+          </MuiThemeProvider>
+
           <input type="submit" value="Submit" />
 
         </form>
@@ -111,13 +140,16 @@ export class Registration extends Component {
   render() {
 
     return (
+      <React.Fragment>
+        <CssBaseline />
       <div>
         {this.regHeader()}
         {this.regForm()}
       </div>
+      </React.Fragment>
     );
   }
 }
 
 
-export default Registration;
+export default withStyles(styles)(Registration);
