@@ -106,15 +106,6 @@ handleStateChange(e)
   this.props.clickState('login');
 }
 
-  drawButton()
-  {
-    return(
-      <button onClick={this.handleStateChange}>
-      Login!
-      </button>
-
-    )
-  }
   
   render() {
 
@@ -136,8 +127,6 @@ handleStateChange(e)
           {this.qlBody3()}
 
           {this.qlFooter()}
-
-          {this.drawButton()}
 
       </div>
 

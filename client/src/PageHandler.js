@@ -3,11 +3,11 @@ import {Landing} from './Landing';
 import {Main} from './Main';
 import {Registration} from './Registration';
 import Login from './Login';
-//import {Auth} from './Auth';
-//import AuthLogin from '/Auth/Login';
-//import AuthLogout from '/Auth/Logout';
-//import isAuthenticated from './Auth/isAuthenticated';
-//import Private from './Components/Private';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import lightgreen from '@material-ui/core/colors/lightGreen';
+import blue from '@material-ui/core/colors/blue';
+
 
 import {
   BrowserRouter as Router,
@@ -15,6 +15,28 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+
+const styles = theme => ({
+  margin: {
+    margin: theme.spacing.unit,
+  }
+});
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main:  blue[900],
+    },
+    secondary: {
+      main: lightgreen[600],
+    },
+  },
+  typography: {
+    useNextVariants: true,
+  },
+});
+
 
 
 //require('dotenv').config();
@@ -65,7 +87,9 @@ class PageHandler extends Component{
        // {
           return(
 
+            
             <Router>
+
               <div className="qlHeader">
               <Link to="/landing">Home</Link>...
               <Link to="/registration">Register</Link>...

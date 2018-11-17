@@ -5,22 +5,25 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import deepPurple from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/red';
-
+import lightgreen from '@material-ui/core/colors/lightGreen';
+import blue from '@material-ui/core/colors/blue';
 
 
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
-    backgroundColor: deepPurple[500],
-  },
+  }
 });
 
 
 const theme = createMuiTheme({
   palette: {
-    primary: green,
+    primary: {
+      main:  blue[900],
+    },
+    secondary: {
+      main: lightgreen[600],
+    },
   },
   typography: {
     useNextVariants: true,
@@ -52,7 +55,10 @@ export class Registration extends Component {
 
     regForm()
     {
+
       return(
+
+
         <div className="qlRegistrationBody">
           <br />
           <br />
@@ -82,7 +88,7 @@ export class Registration extends Component {
           <br />
 
           <MuiThemeProvider theme={theme}>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="secondary">
           
           Hai
           </Button>
