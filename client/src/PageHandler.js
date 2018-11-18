@@ -7,6 +7,9 @@ import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/
 import CssBaseline from '@material-ui/core/CssBaseline';
 import lightgreen from '@material-ui/core/colors/lightGreen';
 import blue from '@material-ui/core/colors/blue';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 
 import {
@@ -37,9 +40,6 @@ const theme = createMuiTheme({
   },
 });
 
-
-
-//require('dotenv').config();
 
 
 class PageHandler extends Component{
@@ -73,29 +73,34 @@ class PageHandler extends Component{
           <Main />
         );
 
-        /*
-        const login = () => (
-          <Login />
 
-        );
-*/
-        //get the current state
-        //const currentState = this.state.page;
-
-        //landing page
-        //if (currentState === 'landing')
-       // {
           return(
 
-            
+
+
             <Router>
 
               <div className="qlHeader">
-              <Link to="/landing">Home</Link>...
-              <Link to="/registration">Register</Link>...
-              <Link to="/login">Login</Link>...
-              <Link to="/main">Main</Link>...
-              
+
+
+            <MuiThemeProvider theme={theme}>
+              <AppBar position="static" color="primary">
+                <Toolbar>
+
+                <Button color="inherit" href="/landing">Home</Button>
+                <Button color="inherit" href="/registration">Register</Button>
+                <Button color="inherit" href="/login">Login</Button>
+                <Button color="inherit" href="/main">Main</Button>
+
+
+                </Toolbar>      
+
+
+
+              </AppBar>
+            </MuiThemeProvider>
+
+
               <Route exact path="/" component={landing} />
               <Route path="/landing" component={landing} />
               <Route path="/registration" component={registration} />
@@ -104,39 +109,11 @@ class PageHandler extends Component{
               
               </div>
             </Router>
-            //<Landing clickState={this.updateState}/>
         );
 
-       // }
-       /*
-        //registration page - TBD
-        else if (currentState === 'registration')
-        {
-          return(
-            <Registration />
-          );
-  
-        }
-        //main (logged in) - TBD
-        else if (currentState === 'main')
-        {
-          return(
-            <Main />
-          );
-  
-        }
-        //login - TBD
-        else if (currentState === 'login')
-        {
-          return(
-            <Login />
-          );
-  
-        }
-        */
       }
     
     }
   
 
-  export default PageHandler;
+  export default withStyles(styles)(PageHandler);
