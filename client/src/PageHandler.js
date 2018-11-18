@@ -10,7 +10,7 @@ import blue from '@material-ui/core/colors/blue';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-
+import Typography from '@material-ui/core/Typography';
 
 import {
   BrowserRouter as Router,
@@ -37,6 +37,11 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
+    fontFamily: [
+      '"Segoe UI"',
+      '"Helvetica Neue"',
+      'Arial',
+    ].join(','),
   },
 });
 
@@ -87,11 +92,14 @@ class PageHandler extends Component{
               <AppBar position="static" color="primary">
                 <Toolbar>
 
-                <Button color="inherit" href="/landing">Home</Button>
-                <Button color="inherit" href="/registration">Register</Button>
-                <Button color="inherit" href="/login">Login</Button>
-                <Button color="inherit" href="/main">Main</Button>
+                <Button variant="text" color="inherit" href="/landing">Home</Button>
+                <Button variant="text"  color="inherit" href="/registration">Register</Button>
+                <Button variant="text"  color="inherit" href="/login">Login</Button>
+                <Button variant="text" color="inherit" href="/main">Main</Button>
 
+                <Typography variant="body1">
+                oh heck. hello.
+                </Typography>
 
                 </Toolbar>      
 
