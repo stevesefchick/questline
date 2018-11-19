@@ -87,7 +87,8 @@ class PageHandler extends Component{
 
               <div className="qlHeader">
 
-
+      <React.Fragment>
+        <CssBaseline />
             <MuiThemeProvider theme={theme}>
               <AppBar position="static" color="primary">
                 <Toolbar>
@@ -107,6 +108,7 @@ class PageHandler extends Component{
 
               </AppBar>
             </MuiThemeProvider>
+            </React.Fragment>
 
 
               <Route exact path="/" component={landing} />
