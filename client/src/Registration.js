@@ -112,13 +112,12 @@ export class Registration extends Component {
       const data = new FormData(event.target);
 
 
-      console.log(data.get('username'));
       //send api call to server
-      axios.get('/api/registration/new', {
+      axios.post('/api/registration/new', {
         username: 'heck'
       })
       .then (function (response) {
-        console.log('heck it worked!');
+        console.log(response.data);
       })
       .catch (function (error) {
         console.log(error);
@@ -137,8 +136,6 @@ export class Registration extends Component {
       });
       */
 
-
-        console.log('heck');
     }
 
   render() {

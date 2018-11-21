@@ -4,8 +4,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoUserURL='mongodb://'+process.env.MONGOUSER+':'+process.env.MONGOPASS+'@'+process.env.MONGOURL;
-const axios = require('axios');
-
 
 mongoose.connect(mongoUserURL,
   {username: process.env.MONGOUSER,
@@ -38,13 +36,17 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Test!' });
 });
 
-//retrieve auth0 properties
-app.get('/api/authprops/client', (req, res) => {
-  res.send({ express: process.env.AUTHCLIENTID });
+app.post('/api/registration/new', (req, res) => {
+  console.log('username:' + req.body);
+  const user = req.username;
+
+  res.send({ express: 'it worked!' });
 });
+
 
 //TODO: Update Callback
 app.get('/callback', (req, res) => {
+
 
   res.send({ express: 'ayyyyyyyyyy' });
 
