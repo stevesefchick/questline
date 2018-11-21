@@ -112,11 +112,9 @@ export class Registration extends Component {
       const data = new FormData(event.target);
 
 
-
-
       console.log(data.get('username'));
       //send api call to server
-      axios.post('/api/registration/new', {
+      axios.get('/api/registration/new', {
         username: 'heck'
       })
       .then (function (response) {

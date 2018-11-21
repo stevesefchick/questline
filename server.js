@@ -4,6 +4,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoUserURL='mongodb://'+process.env.MONGOUSER+':'+process.env.MONGOPASS+'@'+process.env.MONGOURL;
+const axios = require('axios');
+
 
 mongoose.connect(mongoUserURL,
   {username: process.env.MONGOUSER,
@@ -50,13 +52,45 @@ app.get('/callback', (req, res) => {
 );
 
 //new user registration
+//currently broken come back to
+/*
+const registerNewCustomer = async () => {
+  try {
+    return axios.get('/api/registration/new')
+  }
+  catch (error) {
+    console.error(error)
+  }
+  
+}
+
+const doTheRegister = async () => {
+
+  const reg = registerNewCustomer()
+  .then(response => {
+    if (response.data.message) {
+      console.log(
+        `you registered ${Object.entries(response.data.message).length} `
+      )
+    }
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+}
+
+doTheRegister();
+*/
+
+/*
 app.post('/api/registration/new'), (req, res) =>
 {
   var user_name = req.username;
   res.send({ express: user_name });
 
 }
-
+*/
 
 //TODO: Update with better info for copyright
 //TODO: Remove MongoDB crap
