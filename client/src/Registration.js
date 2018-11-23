@@ -94,7 +94,7 @@ export class Registration extends Component {
           </Button>
           </MuiThemeProvider>
 
-          <input type="submit" value="Submit" />
+          <input type="submit" id="Submit" value="Submit" />
 
         </form>
         

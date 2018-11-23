@@ -27,8 +27,11 @@ const Schema = mongoose.Schema;
 const userModel = require('./models/QuestlineUser');
 
 const app = express();
+const bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 //TODO: Remove for later
@@ -37,8 +40,8 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.post('/api/registration/new', (req, res) => {
-  console.log('username:' + req.body);
-  const user = req.username;
+  console.log('username:' + req.body.username);
+  const user = req.body.username;
 
   res.send({ express: 'it worked!' });
 });
