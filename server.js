@@ -40,10 +40,23 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.post('/api/registration/new', (req, res) => {
-  console.log('Username: ' + req.body.username);
-  console.log('Password: ' + req.body.password);
-  console.log('Email Address: ' + req.body.emailaddress);
-  const user = req.body.username;
+
+  const newBoy = new userModel;
+  newBoy.userName = req.body.username;
+  newBoy.password = req.body.password;
+  newBoy.emailAddress = req.body.emailaddress;
+  newBoy.lastUpdated = new Date;
+  newBoy.dateCreated = new Date;
+  
+  
+  newBoy.save(function(err){
+    if (err) return console.log(err);
+    console.log('mongoDB new user failed');
+  }
+  );
+
+
+
 
   res.send({ express: 'it worked!' });
 });
