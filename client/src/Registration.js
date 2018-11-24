@@ -67,7 +67,7 @@ export class Registration extends Component {
 
           <label>
             Username:<br/>
-            <input type="text" name="username" />
+            <input type="text" id="username" name="username" />
           </label>
           <br />
           <br />
@@ -88,7 +88,7 @@ export class Registration extends Component {
           <br />
 
           <MuiThemeProvider theme={theme}>
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" id="Submit" value="Submit">
           
           Hai
           </Button>
@@ -114,7 +114,9 @@ export class Registration extends Component {
 
       //send api call to server
       axios.post('/api/registration/new', {
-        username: 'heck'
+        username: data.get('username'),
+        password: data.get('password'),
+        emailaddress: data.get('emailaddress'),
       })
       .then (function (response) {
         console.log(response.data);

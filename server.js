@@ -40,7 +40,9 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.post('/api/registration/new', (req, res) => {
-  console.log('username:' + req.body.username);
+  console.log('Username: ' + req.body.username);
+  console.log('Password: ' + req.body.password);
+  console.log('Email Address: ' + req.body.emailaddress);
   const user = req.body.username;
 
   res.send({ express: 'it worked!' });
@@ -55,6 +57,7 @@ app.get('/callback', (req, res) => {
 
 }
 );
+
 
 //new user registration
 //currently broken come back to
