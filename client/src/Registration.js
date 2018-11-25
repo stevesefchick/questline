@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //import './App.css';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import lightgreen from '@material-ui/core/colors/lightGreen';
@@ -99,6 +101,23 @@ export class Registration extends Component {
 
         </form>
         
+        <br />
+        <br />
+        <br />
+        
+        <MuiThemeProvider theme={theme}>
+
+        <FormControl>
+          <TextField label="Name" id="regname" variant="outlined" /> <br />
+          <TextField label="Password" id="regpassword" variant="outlined" /><br />
+          <TextField label="Email Address" id="regemail" variant="outlined" /><br />
+
+          <Button onClick={this.submitForm} variant="contained"  color="secondary" id="Submit" value="Submit">
+          Submit
+          </Button>
+        </FormControl>
+        </MuiThemeProvider>
+
       </div>
       )
     }
