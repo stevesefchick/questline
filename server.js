@@ -34,31 +34,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-//TODO: Remove for later
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Test!' });
-});
-
 app.post('/api/registration/new', (req, res) => {
 
-  const newBoy = new userModel;
-  newBoy.userName = req.body.username;
-  newBoy.password = req.body.password;
-  newBoy.emailAddress = req.body.emailaddress;
-  newBoy.lastUpdated = new Date;
-  newBoy.dateCreated = new Date;
+  const newUser = new userModel;
+  newUser.userName = req.body.username;
+  newUser.password = req.body.password;
+  newUser.emailAddress = req.body.emailaddress;
+  newUser.lastUpdated = new Date;
+  newUser.dateCreated = new Date;
   
   
-  newBoy.save(function(err){
+  newUser.save(function(err){
     if (err) return console.log(err);
-    console.log('mongoDB new user failed');
+    console.log('User Registration failed!');
   }
   );
 
-
-
-
-  res.send({ express: 'it worked!' });
+  res.send({ express: 'User registration successful!' });
 });
 
 

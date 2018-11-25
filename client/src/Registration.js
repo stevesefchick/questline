@@ -88,13 +88,14 @@ export class Registration extends Component {
           <br />
 
           <MuiThemeProvider theme={theme}>
-          <Button variant="contained" color="secondary" id="Submit" value="Submit">
-          
+
+          <input type="submit" id="Submit" value="Submit" />
+
+          <Button onClick={this.submitForm} variant="contained"  color="secondary" id="Submit" value="Submit">
           Hai
           </Button>
           </MuiThemeProvider>
 
-          <input type="submit" id="Submit" value="Submit" />
 
         </form>
         
@@ -110,6 +111,9 @@ export class Registration extends Component {
       event.preventDefault();
       //get data
       const data = new FormData(event.target);
+      console.log(data.get('username'));
+      console.log(data.get('password'));
+      console.log(data.get('emailaddress'));
 
 
       //send api call to server
